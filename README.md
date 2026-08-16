@@ -55,12 +55,15 @@ npm run deploy:vercel
 ```
 首次会提示浏览器授权登录，之后每次跑这条命令就是重新部署。
 
-**方式二：GitHub Actions 自动部署（推荐，push 即部署，无需手动导入）**
+**方式二：GitHub 集成自动部署（推荐，push 即部署）**
+
+本项目已通过 `npx vercel link --yes` 创建并关联 Vercel 项目（`cyy7/geek-radar`），且已自动连接 GitHub 仓库，之后每次 `git push` 到 `main`，Vercel 都会自动构建部署，无需手动导入。
+（模板内置的 `.github/workflows/deploy.yml`（GitHub Actions 方案）当前有意保留在本地、未推送到 GitHub——推送 workflow 文件需要带 `workflow` scope 的 PAT；Vercel 原生 Git 集成已经覆盖自动部署。若之后想启用 Actions 方案，删除 `.gitignore` 中对应的忽略行后重新提交即可。）
+
 ```bash
 npm run push:github -- geek-radar public
 ```
-若 `.env.local` 里同时配置了 `VERCEL_TOKEN`，脚本会自动关联/创建 Vercel 项目，并把 `VERCEL_TOKEN` / `VERCEL_ORG_ID` / `VERCEL_PROJECT_ID` 写入 GitHub Actions secrets（已登录 gh CLI 时自动写入，没有 gh 则打印手动添加说明）。项目已内置 `.github/workflows/deploy.yml`，之后每次 push main 自动构建部署到 Vercel。
-（仓库会自动命名为 website-geek-radar；首次使用先配置 GITHUB_TOKEN 和 VERCEL_TOKEN，见文末「GitHub 托管」一节）
+`push:github` 用于把本地代码推送到 GitHub（仓库 website-geek-radar），push 后 Vercel 会自动部署。首次使用先配置 `GITHUB_TOKEN` 和 `VERCEL_TOKEN`，见文末「GitHub 托管」一节。
 
 ### Cloudflare Pages（纯静态导出，零适配层，最稳）
 

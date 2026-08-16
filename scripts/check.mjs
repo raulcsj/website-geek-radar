@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
  * 部署前检查（npm run check）：
- * - content/*.mdx 的必需 frontmatter（title / description / date）是否齐全
+ * - content/*.mdx 的必需 frontmatter（title / description / date / cover）是否齐全
+ * - 正文是否有 2-4 张 <ArticleImage> 配图（数量不足或超出会阻断）
  * - 封面图和正文 <ArticleImage> 引用的图片文件是否真实存在于 public/
  * - 文章 slug 是否与 content.config.json 里对应 topic 的 slug 一致（提醒，不阻断）
  *
@@ -46,11 +47,16 @@ for (const file of fs.readdirSync(CONTENT_DIR).filter((f) => f.endsWith(".mdx"))
   const raw = fs.readFileSync(path.join(CONTENT_DIR, file), "utf8");
   const { data, content } = matter(raw);
 
-  for (const field of ["title", "description", "date"]) {
+  for (const field of ["title", "description", "date", "cover"]) {
     if (!data[field]) fail(`content/${file}: frontmatter 缺少 ${field}`);
   }
   if (/^\d{4}-\d{2}-\d{2}$/.test(String(data.date || ""))) {
     dates.push(String(data.date));
+  }
+
+  const bodyImageCount = (content.match(/<ArticleImage\b/g) || []).length;
+  if (bodyImageCount < 2 || bodyImageCount > 4) {
+    fail(`content/${file}: 正文应有 2-4 张 <ArticleImage> 配图，当前 ${bodyImageCount} 张`);
   }
 
   const srcs = [];
@@ -102,4 +108,4 @@ if (fs.existsSync(siteTs) && fs.readFileSync(siteTs, "utf8").includes("example.v
   warn("站点域名仍是占位域名 example.vercel.app，申请 AdSense 前请设置真实域名（scaffold 传 site_url 或构建时设置 NEXT_PUBLIC_SITE_URL）");
 }
 
-console.log("✓ 检查通过：frontmatter 完整，所有引用的图片都存在。");
+console.log("✓ 检查通过：frontmatter 完整、正文配图数量合规、所有引用的图片都存在。");

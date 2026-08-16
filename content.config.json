@@ -3,72 +3,82 @@
   "topics": [
     {
       "slug": "phone-fast-charging-2026",
-      "title": "手机快充进入“百瓦时代”，2026 年怎么选才能兼顾速度和电池寿命",
-      "brief": "拆解百瓦快充的实现方式、充电协议与电池健康策略，给出选购快充手机的三个关键参数。",
+      "title": "充电 10 分钟能用半天？2026 年百瓦快充的真实体验与选购清单",
+      "brief": "把快充拆成峰值功率、前 50% 时间、协议兼容和电池健康四个可验证参数。",
       "images": [
         {
-          "query": "smartphone fast charging on desk with glowing charging cable, modern minimal tech scene",
-          "alt": "手机插着快充线在桌面充电，数据线接口亮起提示灯",
+          "query": "smartphone on dark desk with glowing USB-C fast charging cable, modern minimal tech scene",
+          "alt": "手机插着发光的快充线放在深色桌面上",
           "filename": "cover.jpg"
         },
         {
-          "query": "close-up of USB-C charging port with cable connected to smartphone",
-          "alt": "USB-C 接口特写，快充线正插入手机",
+          "query": "macro close-up of USB-C charging port with cable plugged into smartphone",
+          "alt": "USB-C 接口特写，快充线插入手机",
           "filename": "2.jpg"
         },
         {
-          "query": "wireless charging pad with smartphone on dark wooden desk at evening",
-          "alt": "手机放在无线充电板上，深色桌面环境",
-          "filename": "3.jpg"
-        }
-      ]
-    },
-    {
-      "slug": "pc-build-2026",
-      "title": "2026 年装机不踩坑：DDR5、PCIe 5.0 与电源规格到底怎么搭",
-      "brief": "从内存频率到电源接口，讲清 2026 年装机最容易翻车的三个环节与稳妥搭配思路。",
-      "images": [
-        {
-          "query": "gaming PC build with RGB fans and tempered glass side panel on desk",
-          "alt": "侧透机箱的 RGB 风扇游戏主机摆在桌面上",
-          "filename": "cover.jpg"
-        },
-        {
-          "query": "DDR5 RAM memory modules close-up installed on motherboard",
-          "alt": "DDR5 内存条插在主板上，特写",
-          "filename": "2.jpg"
-        },
-        {
-          "query": "modular power supply unit with cables on desk",
-          "alt": "模组化电源与线材摆放在桌面",
+          "query": "wireless charging stand with smartphone showing battery percentage on dark desk",
+          "alt": "手机立在无线充电座上显示电量百分比",
           "filename": "3.jpg"
         },
         {
-          "query": "graphics card being installed into motherboard inside PC case",
-          "alt": "显卡即将装入机箱内的主板插槽",
+          "query": "smartphone charging on desk at night with cable glowing",
+          "alt": "深夜桌面上充电中的手机与发光的充电线",
           "filename": "4.jpg"
         }
       ]
     },
     {
-      "slug": "tws-earbuds-2026",
-      "title": "真无线耳机选购：编解码器、降噪深度与佩戴体验，哪个才值得加钱",
-      "brief": "把 LDAC、ANC 深度和耳压这些规格翻译成真实体验，帮你把钱花在刀刃上。",
+      "slug": "pc-build-2026",
+      "title": "2026 年装机避坑：内存、固态与电源怎么搭才不浪费钱",
+      "brief": "从 DDR5 频率到 ATX 3.x 电源接口，按预算顺序把配置单搭对。",
       "images": [
         {
-          "query": "white wireless earbuds with charging case on clean minimal desk",
-          "alt": "白色真无线耳机与充电盒放在干净的桌面上",
+          "query": "custom PC build with tempered glass side panel and RGB fans on wooden desk",
+          "alt": "侧透玻璃机箱的 RGB 风扇主机放在木质桌面上",
           "filename": "cover.jpg"
         },
         {
-          "query": "person wearing wireless earbuds walking in city street",
-          "alt": "戴着无线耳机走在城市街道上的行人",
+          "query": "DDR5 memory modules with heatsinks installed on motherboard close-up",
+          "alt": "带散热马甲的 DDR5 内存条插在主板上",
           "filename": "2.jpg"
         },
         {
-          "query": "wireless earbuds charging case open showing earbuds close-up",
-          "alt": "打开的充电盒特写，耳机安静躺在里面",
+          "query": "modular ATX power supply with braided cables inside PC case",
+          "alt": "带编织模组线材的 ATX 电源安装在机箱内",
           "filename": "3.jpg"
+        }
+      ]
+    },
+    {
+      "slug": "tws-earbuds-2026",
+      "title": "2026 年真无线耳机怎么买：降噪、音质与佩戴的取舍顺序",
+      "brief": "用五个购买前的问题，把预算花在真正影响每天体验的地方。",
+      "images": [
+        {
+          "query": "white wireless earbuds with open charging case on clean minimal desk",
+          "alt": "白色无线耳机与打开的充电盒放在简洁桌面上",
+          "filename": "cover.jpg"
+        },
+        {
+          "query": "person wearing white wireless earbuds on commuter train with window light",
+          "alt": "戴着白色无线耳机乘坐通勤列车，窗边有光",
+          "filename": "2.jpg"
+        },
+        {
+          "query": "close-up of wireless earbud with silicone ear tip in hand",
+          "alt": "手指捏着无线耳机的硅胶耳塞特写",
+          "filename": "3.jpg"
+        },
+        {
+          "query": "wireless earbuds charging case with earbuds on coffee shop table",
+          "alt": "咖啡店桌面上摊开的耳机充电盒",
+          "filename": "4.jpg"
+        },
+        {
+          "query": "person adjusting wireless earbuds while walking in city street",
+          "alt": "行人走在城市街道上伸手调整耳机",
+          "filename": "5.jpg"
         }
       ]
     }

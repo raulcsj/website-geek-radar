@@ -15,7 +15,7 @@ npm run dev
 
 ## 主题风格
 
-生成站点时已根据你的主题自动选用风格（配色 + 字体 + 布局），注入 `styles/globals.css` 的 CSS 变量与模板布局。内置预设：editorial（杂志）、travel（旅行）、food（美食）、tech（极客暗色）、minimal（极简）、playful（趣味）。想换风格：重新跑 scaffold 时加 `--style <id>`；想参考某个网站的观感，加 `--ref-url <url>`（会抓取并提取其配色/字体/布局，失败时回退内置）。也可以直接改 `styles/globals.css` 顶部的 `:root` 变量微调。
+生成站点时已根据你的主题自动选用风格（配色 + 字体 + 布局），注入 `styles/globals.css` 的 CSS 变量与模板布局。内置预设：editorial（杂志）、travel（旅行）、food（美食）、tech（极客暗色）、minimal（极简）、playful（趣味）。文章详情页会按所选风格切换版式：`hero`（封面压字大图）、`split`（侧栏目录 + 正文）、`cover`（图在上标题在下）或 `minimal`（标题优先小图），并统一带目录、署名、相关文章和上一篇/下一篇。想换风格：重新跑 scaffold 时加 `--style <id>`；想参考某个网站的观感，加 `--ref-url <url>`（会抓取并提取其配色/字体/布局，失败时回退内置）。也可以直接改 `styles/globals.css` 顶部的 `:root` 变量微调。
 
 ## AdSense 申请
 
@@ -39,7 +39,7 @@ npm run preview
 **检查清单（过一遍再部署）**：
 - [ ] `npm run build` 没有报错（MDX frontmatter 格式错、组件名拼错这类问题会在这一步暴露）
 - [ ] 首页文章列表、每一篇文章详情页都能正常打开
-- [ ] 封面图和正文配图能显示——`npm run check` 会校验图片文件是否存在，缺失会阻止 preview/部署；先跑 `npm run images:fetch`（见下面「配图」一节）
+- [ ] 封面图和正文配图能显示——`npm run check` 会校验图片文件是否存在，并要求每篇有 `cover` + 正文 2-4 张 `<ArticleImage>` 配图，缺失或数量不合规会阻止 preview/部署；先跑 `npm run images:fetch`（见下面「配图」一节）
 - [ ] `/sitemap.xml`、`/robots.txt` 能访问
 - [ ] 中英文/日期这些 frontmatter 字段显示正常，没有 `undefined` 或格式错乱
 
@@ -114,7 +114,7 @@ npm run content:generate -- --provider deepseek   # 或 openai / claude / openai
 
 ## 配图（图文并茂）
 
-每篇文章的封面图 + 正文配图统一放在 `public/images/<slug>/` 下，MDX 里用 `<ArticleImage src="/images/<slug>/cover.jpg" alt="具体描述" caption="图注（可选）" />` 插入（第一张封面固定 `cover.jpg`，后续为 `2.jpg`、`3.jpg`...）。
+每篇文章的封面图 + 正文配图统一放在 `public/images/<slug>/` 下，MDX 里用 `<ArticleImage src="/images/<slug>/cover.jpg" alt="具体描述" caption="图注（可选）" />` 插入（第一张封面固定 `cover.jpg`，后续为 `2.jpg`、`3.jpg`...）。每篇强制要求 1 张封面（frontmatter 的 `cover`）+ 正文 2-4 张 `<ArticleImage>` 配图，`npm run check` 会校验数量并阻止不合规的 preview/部署。
 
 真正的图片文件需要在本机获取（沙盒环境连不到图片服务）：
 ```bash

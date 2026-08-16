@@ -275,9 +275,12 @@ async function setupVercel({ owner, repo, token, scope }) {
   }
 
   console.log("$ git push -u origin main（使用 GITHUB_TOKEN 认证，不写入 .git/config）");
+  // 用 Basic 认证（x-access-token 用户 + token 作密码），兼容 classic 与 fine-grained PAT；
+  // 某些环境对 `Authorization: Bearer` 形式的 git 认证会返回 invalid credentials。
+  const basicAuth = Buffer.from(`x-access-token:${token}`).toString("base64");
   const pushed = spawnSync(
     "git",
-    ["-c", `http.extraheader=Authorization: Bearer ${token}`, "push", "-u", "origin", "main"],
+    ["-c", `http.extraheader=AUTHORIZATION: basic ${basicAuth}`, "push", "-u", "origin", "main"],
     { stdio: "inherit" }
   );
   if (pushed.error || pushed.status !== 0) {

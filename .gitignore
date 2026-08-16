@@ -6,3 +6,10 @@ out
 .env
 .env.*
 !.env.example
+
+# 本地保留的 GitHub Actions workflow：当前 PAT 无 workflow scope，推送到远程会被 GitHub 拒绝。
+# 拿到带 workflow scope 的 token 后，删除本行并重新 git add .github/workflows/deploy.yml 即可启用自动部署。
+.github/workflows/deploy.yml
+
+.vercel
+.env*

@@ -4,10 +4,16 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import type { ReactNode } from "react";
 import { getAllPosts, getAllSlugs, getPostBySlug, type PostMeta } from "@/lib/posts";
 import ArticleImage from "@/components/ArticleImage";
+import ImageText from "@/components/ImageText";
+import Gallery from "@/components/Gallery";
+import Callout from "@/components/Callout";
+import PullQuote from "@/components/PullQuote";
+import { Steps, Step } from "@/components/Steps";
+import { FactCard, Fact } from "@/components/FactCard";
 import { SITE_TITLE, SITE_URL } from "@/lib/site";
 import type { Metadata } from "next";
 
-const LOCALE: string = "zh";
+const LOCALE: string = "en";
 const POST_LAYOUT: string = "split";
 const IS_ZH = LOCALE === "zh";
 
@@ -70,7 +76,19 @@ const H3 = ({ children }: { children?: ReactNode }) => (
   <h3 id={slugifyHeading(textOf(children))}>{children}</h3>
 );
 
-const MDX_COMPONENTS = { ArticleImage, h2: H2, h3: H3 };
+const MDX_COMPONENTS = {
+  ArticleImage,
+  ImageText,
+  Gallery,
+  Callout,
+  PullQuote,
+  Steps,
+  Step,
+  FactCard,
+  Fact,
+  h2: H2,
+  h3: H3,
+};
 
 function TagChips({ tags, light = false, className = "" }: { tags?: string[]; light?: boolean; className?: string }) {
   if (!tags?.length) return null;

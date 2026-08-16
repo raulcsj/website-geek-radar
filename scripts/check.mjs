@@ -2,7 +2,7 @@
 /**
  * 部署前检查（npm run check）：
  * - content/*.mdx 的必需 frontmatter（title / description / date / cover）是否齐全
- * - 正文是否有 2-4 张 <ArticleImage> 配图（数量不足或超出会阻断）
+ * - 正文是否按 H2 小节分布视觉块（每小节至少一个图文/结构块，否则阻断）
  * - 封面图和正文 <ArticleImage> 引用的图片文件是否真实存在于 public/
  * - 文章 slug 是否与 content.config.json 里对应 topic 的 slug 一致（提醒，不阻断）
  *
@@ -22,6 +22,12 @@ function slugify(title) {
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "")
     .slice(0, 60);
+}
+
+function countVisualBlocks(text) {
+  return (
+    String(text).match(/<(ArticleImage|ImageText|Gallery|Callout|PullQuote|Steps|FactCard)\b/g) || []
+  ).length;
 }
 
 const problems = [];
@@ -54,9 +60,35 @@ for (const file of fs.readdirSync(CONTENT_DIR).filter((f) => f.endsWith(".mdx"))
     dates.push(String(data.date));
   }
 
-  const bodyImageCount = (content.match(/<ArticleImage\b/g) || []).length;
-  if (bodyImageCount < 2 || bodyImageCount > 4) {
-    fail(`content/${file}: 正文应有 2-4 张 <ArticleImage> 配图，当前 ${bodyImageCount} 张`);
+  const h2Sections = content.split(/^##[ \t]+/gm);
+  h2Sections.shift();
+  const sections = h2Sections;
+  const totalVisual = countVisualBlocks(content);
+
+  if (sections.length > 0) {
+    sections.forEach((section, i) => {
+      if (countVisualBlocks(section) === 0) {
+        fail(
+          `content/${file}: 第 ${i + 1} 个 H2 小节缺少视觉块（至少使用一个 ArticleImage/ImageText/Gallery/Callout/PullQuote/Steps/FactCard）`
+        );
+      }
+    });
+  } else if (totalVisual < 2) {
+    fail(`content/${file}: 正文视觉块不足（当前 ${totalVisual} 个，至少 2 个）`);
+  }
+
+  const textSegmentLengths = content
+    .split(/<(ArticleImage|ImageText|Gallery|Callout|PullQuote|Steps|FactCard)\b/)
+    .map((segment) => segment.replace(/\s+/g, "").length);
+  if (textSegmentLengths.some((len) => len > 500)) {
+    warn(`content/${file}: 存在较长的连续纯文字，建议每 2-3 段插入一个视觉块`);
+  }
+
+  if (sections.length >= 2) {
+    const sectionsWithVisual = sections.filter((section) => countVisualBlocks(section) > 0).length;
+    if (sectionsWithVisual === 1) {
+      warn(`content/${file}: 视觉块集中在一个 H2 小节，建议每个主题小节都搭配对应视觉块`);
+    }
   }
 
   const srcs = [];
@@ -108,4 +140,4 @@ if (fs.existsSync(siteTs) && fs.readFileSync(siteTs, "utf8").includes("example.v
   warn("站点域名仍是占位域名 example.vercel.app，申请 AdSense 前请设置真实域名（scaffold 传 site_url 或构建时设置 NEXT_PUBLIC_SITE_URL）");
 }
 
-console.log("✓ 检查通过：frontmatter 完整、正文配图数量合规、所有引用的图片都存在。");
+console.log("✓ 检查通过：frontmatter 完整、正文视觉块分布合规、所有引用的图片都存在。");

@@ -4,7 +4,8 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { SITE_TITLE, SITE_DESC, SITE_URL } from "@/lib/site";
 
-const OG_LOCALE = "zh" === "zh" ? "zh_CN" : "en_US";
+const LOCALE: string = "en";
+const OG_LOCALE = LOCALE === "zh" ? "zh_CN" : "en_US";
 const LAYOUT_HEADER: string = "simple"; // simple | tagline
 const CONTAINER_CLASS = "max-w-5xl"; // max-w-2xl | max-w-3xl | max-w-5xl
 const GOOGLE_FONTS_URL = "https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap"; // 参考站点字体链接，空串则不加载
@@ -46,7 +47,7 @@ const websiteJsonLd = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="zh" data-style="tech">
+    <html lang="en" data-style="tech">
       <body className="min-h-screen flex flex-col">
         <header className="sticky top-0 z-40 border-b border-line bg-surface shadow-sm">
           <div className={`${CONTAINER_CLASS} mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4`}>

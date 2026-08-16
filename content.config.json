@@ -1,83 +1,83 @@
 {
-  "locale": "zh",
+  "locale": "en",
   "topics": [
     {
       "slug": "phone-fast-charging-2026",
-      "title": "充电 10 分钟能用半天？2026 年百瓦快充的真实体验与选购清单",
-      "brief": "把快充拆成峰值功率、前 50% 时间、协议兼容和电池健康四个可验证参数。",
+      "title": "Phone Fast Charging in 2026: What Actually Matters (and What Doesn't)",
+      "brief": "Peak wattage grabs headlines, but the charge curve, protocols, and battery-health strategy decide real-world speed.",
       "images": [
         {
           "query": "smartphone on dark desk with glowing USB-C fast charging cable, modern minimal tech scene",
-          "alt": "手机插着发光的快充线放在深色桌面上",
+          "alt": "Smartphone charging on a dark desk with a glowing USB-C cable",
           "filename": "cover.jpg"
         },
         {
           "query": "macro close-up of USB-C charging port with cable plugged into smartphone",
-          "alt": "USB-C 接口特写，快充线插入手机",
+          "alt": "Close-up of a USB-C cable plugged into a smartphone",
           "filename": "2.jpg"
         },
         {
           "query": "wireless charging stand with smartphone showing battery percentage on dark desk",
-          "alt": "手机立在无线充电座上显示电量百分比",
+          "alt": "Smartphone on a wireless charging stand showing battery percentage",
           "filename": "3.jpg"
         },
         {
           "query": "smartphone charging on desk at night with cable glowing",
-          "alt": "深夜桌面上充电中的手机与发光的充电线",
+          "alt": "Phone charging on a desk at night with a glowing cable",
           "filename": "4.jpg"
         }
       ]
     },
     {
       "slug": "pc-build-2026",
-      "title": "2026 年装机避坑：内存、固态与电源怎么搭才不浪费钱",
-      "brief": "从 DDR5 频率到 ATX 3.x 电源接口，按预算顺序把配置单搭对。",
+      "title": "PC Building in 2026: DDR5, PCIe 5.0, and Power Supplies Without the Guesswork",
+      "brief": "Memory frequency, SSD interfaces, and PSU connectors are where builds go wrong. Here's the order that works.",
       "images": [
         {
           "query": "custom PC build with tempered glass side panel and RGB fans on wooden desk",
-          "alt": "侧透玻璃机箱的 RGB 风扇主机放在木质桌面上",
+          "alt": "Custom PC with tempered glass and RGB fans on a wooden desk",
           "filename": "cover.jpg"
         },
         {
           "query": "DDR5 memory modules with heatsinks installed on motherboard close-up",
-          "alt": "带散热马甲的 DDR5 内存条插在主板上",
+          "alt": "DDR5 memory modules with heatsinks on a motherboard",
           "filename": "2.jpg"
         },
         {
           "query": "modular ATX power supply with braided cables inside PC case",
-          "alt": "带编织模组线材的 ATX 电源安装在机箱内",
+          "alt": "ATX power supply with braided modular cables in a PC case",
           "filename": "3.jpg"
         }
       ]
     },
     {
       "slug": "tws-earbuds-2026",
-      "title": "2026 年真无线耳机怎么买：降噪、音质与佩戴的取舍顺序",
-      "brief": "用五个购买前的问题，把预算花在真正影响每天体验的地方。",
+      "title": "Wireless Earbuds in 2026: Codecs, ANC, and Fit — What's Actually Worth Paying For",
+      "brief": "The gap between budget and premium earbuds isn't sound — it's ANC, fit, and call clarity. Five questions to ask before you spend.",
       "images": [
         {
           "query": "white wireless earbuds with open charging case on clean minimal desk",
-          "alt": "白色无线耳机与打开的充电盒放在简洁桌面上",
+          "alt": "White wireless earbuds with an open charging case",
           "filename": "cover.jpg"
         },
         {
           "query": "person wearing white wireless earbuds on commuter train with window light",
-          "alt": "戴着白色无线耳机乘坐通勤列车，窗边有光",
+          "alt": "Person wearing white earbuds on a commuter train",
           "filename": "2.jpg"
         },
         {
           "query": "close-up of wireless earbud with silicone ear tip in hand",
-          "alt": "手指捏着无线耳机的硅胶耳塞特写",
+          "alt": "Close-up of a wireless earbud held in fingers",
           "filename": "3.jpg"
         },
         {
           "query": "wireless earbuds charging case with earbuds on coffee shop table",
-          "alt": "咖啡店桌面上摊开的耳机充电盒",
+          "alt": "Earbuds and charging case on a coffee shop table",
           "filename": "4.jpg"
         },
         {
           "query": "person adjusting wireless earbuds while walking in city street",
-          "alt": "行人走在城市街道上伸手调整耳机",
+          "alt": "Person adjusting earbuds while walking on a city street",
           "filename": "5.jpg"
         }
       ]

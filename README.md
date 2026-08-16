@@ -1,6 +1,6 @@
-# 极客雷达
+# Geek Radar
 
-聚焦智能手机、PC 与智能硬件的参数解读、真实体验与选购建议，帮你在新品浪潮中做出理性选择
+Practical, hands-on explanations of smartphones, PC hardware, and smart devices — specs translated into buying decisions
 
 > 全部命令都是 `npm run xxx`，Windows（PowerShell/cmd）、Mac、Linux 通用，不依赖 bash/WSL。
 
@@ -39,7 +39,7 @@ npm run preview
 **检查清单（过一遍再部署）**：
 - [ ] `npm run build` 没有报错（MDX frontmatter 格式错、组件名拼错这类问题会在这一步暴露）
 - [ ] 首页文章列表、每一篇文章详情页都能正常打开
-- [ ] 封面图和正文配图能显示——`npm run check` 会校验图片文件是否存在，并要求每篇有 `cover` + 正文 2-4 张 `<ArticleImage>` 配图，缺失或数量不合规会阻止 preview/部署；先跑 `npm run images:fetch`（见下面「配图」一节）
+- [ ] 封面图和正文配图能显示——`npm run check` 会校验图片文件是否存在，并要求每篇有 `cover` + 每个 H2 小节至少一个视觉块（`ArticleImage`/`ImageText`/`Gallery`/`Callout` 等），缺失或不达标会阻止 preview/部署；先跑 `npm run images:fetch`（见下面「配图」一节）
 - [ ] `/sitemap.xml`、`/robots.txt` 能访问
 - [ ] 中英文/日期这些 frontmatter 字段显示正常，没有 `undefined` 或格式错乱
 
@@ -96,7 +96,7 @@ tags: ["标签1", "标签2"]
 **备用方式：脱离编码 agent、想批量重新生成/换供应商时**，编辑 `content.config.json` 列出要写的选题：
 ```json
 {
-  "locale": "zh",
+  "locale": "en",
   "topics": [
     { "title": "working title", "brief": "一句话说明角度" }
   ]
@@ -114,7 +114,7 @@ npm run content:generate -- --provider deepseek   # 或 openai / claude / openai
 
 ## 配图（图文并茂）
 
-每篇文章的封面图 + 正文配图统一放在 `public/images/<slug>/` 下，MDX 里用 `<ArticleImage src="/images/<slug>/cover.jpg" alt="具体描述" caption="图注（可选）" />` 插入（第一张封面固定 `cover.jpg`，后续为 `2.jpg`、`3.jpg`...）。每篇强制要求 1 张封面（frontmatter 的 `cover`）+ 正文 2-4 张 `<ArticleImage>` 配图，`npm run check` 会校验数量并阻止不合规的 preview/部署。
+每篇文章的封面图 + 正文配图统一放在 `public/images/<slug>/` 下，MDX 里用 `<ArticleImage>`、`<ImageText>`、`<Gallery>` 等正文组件插入（第一张封面固定 `cover.jpg`，后续为 `2.jpg`、`3.jpg`...）。每篇强制要求 1 张封面（frontmatter 的 `cover`）+ 每个 H2 小节至少一个视觉块，`npm run check` 会校验图文分布并阻止不合规的 preview/部署。
 
 真正的图片文件需要在本机获取（沙盒环境连不到图片服务）：
 ```bash

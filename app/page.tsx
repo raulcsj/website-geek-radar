@@ -5,7 +5,7 @@ import type { PostMeta } from "@/lib/posts";
 
 // stacked（单列横卡）/ grid（双列竖卡）/ magazine（首篇大图 hero + 其余网格）
 const HOME_LAYOUT: string = "grid";
-const LOCALE: string = "zh";
+const LOCALE: string = "en";
 const IS_ZH = LOCALE === "zh";
 
 function MetaRow({ post, light }: { post: PostMeta; light?: boolean }) {

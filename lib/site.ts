@@ -1,5 +1,5 @@
-// 站点全局信息：脚手架注入 极客雷达 / 聚焦智能手机、PC 与智能硬件的参数解读、真实体验与选购建议，帮你在新品浪潮中做出理性选择 / https://geek-radar-three.vercel.app。
+// 站点全局信息：脚手架注入 Geek Radar / Practical, hands-on explanations of smartphones, PC hardware, and smart devices — specs translated into buying decisions / https://geek-radar-three.vercel.app。
 // URL 构建时可用 NEXT_PUBLIC_SITE_URL 覆盖（AdSense 申请需要真实域名）。
-export const SITE_TITLE = "极客雷达";
-export const SITE_DESC = "聚焦智能手机、PC 与智能硬件的参数解读、真实体验与选购建议，帮你在新品浪潮中做出理性选择";
+export const SITE_TITLE = "Geek Radar";
+export const SITE_DESC = "Practical, hands-on explanations of smartphones, PC hardware, and smart devices — specs translated into buying decisions";
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://geek-radar-three.vercel.app";

@@ -81,6 +81,28 @@
           "filename": "5.jpg"
         }
       ]
+    },
+    {
+      "slug": "smartphone-cameras-2026",
+      "title": "Smartphone Cameras in 2026: What the Megapixel War Gets Wrong",
+      "brief": "Sensor size, telephoto quality, and computational processing matter more than megapixels. Here's what to actually check.",
+      "images": [
+        {
+          "query": "modern smartphone with triple camera module on dark desk, minimal tech scene",
+          "alt": "Modern smartphone with a triple camera module on a dark desk",
+          "filename": "cover.jpg"
+        },
+        {
+          "query": "close-up of smartphone rear camera module with multiple lenses",
+          "alt": "Close-up of a smartphone rear camera module with multiple lenses",
+          "filename": "2.jpg"
+        },
+        {
+          "query": "person taking photo with smartphone at dusk on city street",
+          "alt": "Person taking a photo with a smartphone at dusk",
+          "filename": "3.jpg"
+        }
+      ]
     }
   ],
   "_schema_note": "每个 topic 可选 images: [{ query, alt, filename }]，配合 scripts/fetch-images.mjs 使用"
